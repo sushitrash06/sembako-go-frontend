@@ -13,7 +13,6 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { purple } from '@material-ui/core/colors';
 import '../App.css';
-import {BrowserRouter as Router} from 'react-router-dom';
 //import Masuk from '../Tampilan/LoginUser';
 import { withRouter } from 'react-router-dom';
 import history from '../history';
@@ -80,7 +79,7 @@ const theme = createMuiTheme({
 const NavbarAwal = (props)=> {
   const classes = useStyles();
   return (
-    <Router>
+   
     <ThemeProvider theme={theme} id="container">
     <div className={classes.root}>
       <AppBar 
@@ -116,7 +115,7 @@ const NavbarAwal = (props)=> {
       </AppBar>
     </div>
   </ThemeProvider>
-  </Router>
+  
   );
 }
 export default withRouter(NavbarAwal);

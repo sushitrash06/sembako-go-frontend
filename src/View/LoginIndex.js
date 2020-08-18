@@ -12,8 +12,8 @@ import { ThemeProvider } from '@material-ui/styles';
 import '@material-ui/core/colors';
 import {useMediaQuery} from 'react-responsive';
 import history from '../history';
-import {BrowserRouter as Router} from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import {BrowserRouter as Router,withRouter} from 'react-router-dom';
+//import { withRouter } from 'react-router-dom';
 
 const Desktop = ({ children }) => {
   const isDesktop = useMediaQuery({ minWidth: 991 })

@@ -46,7 +46,7 @@ class RegisterPenjual extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  name="first_name"
+                  name="Nama"
                   placeholder="Enter your first name"
                   value={this.state.Nama}
                   onChange={this.onChange}
@@ -57,7 +57,7 @@ class RegisterPenjual extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  name="last_name"
+                  name="Nama_toko"
                   placeholder="Enter your lastname name"
                   value={this.state.Nama_toko}
                   onChange={this.onChange}
@@ -68,7 +68,7 @@ class RegisterPenjual extends Component {
                 <input
                   type="email"
                   className="form-control"
-                  name="email"
+                  name="Email"
                   placeholder="Enter email"
                   value={this.state.Email}
                   onChange={this.onChange}
@@ -77,9 +77,9 @@ class RegisterPenjual extends Component {
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
-                  type="password"
+                  type="Password"
                   className="form-control"
-                  name="password"
+                  name="Password"
                   placeholder="Password"
                   value={this.state.Password}
                   onChange={this.onChange}

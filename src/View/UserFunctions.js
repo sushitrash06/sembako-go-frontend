@@ -13,9 +13,9 @@ export const register = newUser => {
     })
 }
 
-export const login = user =>{
+export const login_penjual = user =>{
     return axios
-    .post('users/login', {
+    .post('users/login_penjual', {
         Email: user.Email,
         Password: user.Password
     })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { login } from '../UserFunctions';
+import { login_penjual} from '../UserFunctions';
 
 class LoginPenjual extends Component {
   constructor() {
@@ -25,7 +25,7 @@ class LoginPenjual extends Component {
       Password: this.state.Password
     }
 
-    login(user).then(res => {
+    login_penjual(user).then(res => {
       if (res) {
         this.props.history.push(`/profile`)
       }
@@ -44,10 +44,10 @@ class LoginPenjual extends Component {
                 <input
                   type="email"
                   className="form-control"
-                  name="email"
+                  name="Email"
                   placeholder="Enter email"
                   value={this.state.Email}
-                  onChange={this.onChange}
+                  onChange={this.onChange} 
                 />
               </div>
               <div className="form-group">
@@ -55,7 +55,7 @@ class LoginPenjual extends Component {
                 <input
                   type="password"
                   className="form-control"
-                  name="password"
+                  name="Password"
                   placeholder="Password"
                   value={this.state.Password}
                   onChange={this.onChange}
