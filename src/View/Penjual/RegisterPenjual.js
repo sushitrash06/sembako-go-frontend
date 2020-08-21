@@ -6,9 +6,11 @@ class RegisterPenjual extends Component {
     super()
     this.state = {
       Nama: '',
-      Nama_Toko: '',
-      Email: '',
+      Nama_toko: '',
+      Username: '',
       Password: '',
+      Alamat: '',
+      Roles: '',
       errors: {}
     }
 
@@ -24,14 +26,29 @@ class RegisterPenjual extends Component {
 
     const newUser = {
       Nama: this.state.Nama,
-      Nama_Toko: this.state.Nama_Toko,
-      Email: this.state.Email,
-      Password: this.state.Password
+      Nama_toko: this.state.Nama_toko,
+      Username: this.state.Username,
+      Password: this.state.Password,
+      Alamat: this.state.Alamat,
+      Roles: this.state.Roles
     }
 
     register(newUser).then(res => {
-      this.props.history.push(`/login`)
+      if (res){
+        if(Roles=="Penjual"){
+          this.props.history.push(`/DashboardPenjual`)
+        }else if (Roles=="Pembeli"){
+          this.props.history.push(`\DashboardPembeli`)
+        }else{
+          alert("Gagal Register, Masukan data dengan benar")
+        }
+      }
     })
+  }
+  yesnoCheck() {
+    if (document.getElementById("yesCheck").checked) {
+      document.getElementById("ifYes").style.visibility = "visible";
+    } else document.getElementById("ifYes").style.visibility = "hidden";
   }
 
   render() {
@@ -52,6 +69,27 @@ class RegisterPenjual extends Component {
                   onChange={this.onChange}
                 />
               </div>
+              <div>
+                <p>Kamu adalah seorang : </p>
+                 Pembeli{" "}
+                   <input
+                    type="radio"
+                    onClick={this.yesnoCheck}
+                    name="yesno"
+                    id="yesCheck"
+                    value={this.state.Roles==="Pembeli"}
+                    />
+                Penjual{" "}
+                    <input
+                      type="radio"
+                      onClick={this.yesnoCheck}
+                      name="yesno"
+                      id="noCheck"
+                      value={this.state.Roles==="Penjual"}
+                      onChange={this.onChange}
+                    />
+          <br />
+          <div id="ifYes" style={{ visibility: "hidden" }}>
               <div className="form-group">
                 <label htmlFor="name">Nama Toko</label>
                 <input
@@ -63,14 +101,16 @@ class RegisterPenjual extends Component {
                   onChange={this.onChange}
                 />
               </div>
+            </div>
+          </div>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="Username">Username</label>
                 <input
-                  type="email"
+                  type="Username"
                   className="form-control"
-                  name="Email"
-                  placeholder="Enter email"
-                  value={this.state.Email}
+                  name="Username"
+                  placeholder="Enter Username"
+                  value={this.state.Username}
                   onChange={this.onChange}
                 />
               </div>

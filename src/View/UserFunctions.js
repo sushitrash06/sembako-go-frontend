@@ -5,17 +5,19 @@ export const register = newUser => {
     .post('Users/register',{
         Nama: newUser.Nama,
         Nama_toko: newUser.Nama_toko,
-        Email: newUser.Email,
-        Password: newUser.Password
+        Alamat: newUser.Alamat,
+        Username: newUser.Username,
+        Password: newUser.Password,
+        Roles:newUser.Roles
     })
     .then(res => {
         console.log("Registed")
     })
 }
 
-export const login_penjual = user =>{
+export const login = user =>{
     return axios
-    .post('users/login_penjual', {
+    .post('users/login', {
         Email: user.Email,
         Password: user.Password
     })

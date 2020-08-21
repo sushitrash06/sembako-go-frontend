@@ -7,7 +7,10 @@ import history from "./history";
 import Login from "./View/LoginIndex";
 import LoginPenjual from "./View/Login/LoginPenjual";
 import RegisterPenjual from "./View/Penjual/RegisterPenjual";
-
+import profile from "./Component/LandingTester";
+//import Landing from "./Component/Landing";
+import DashboardPenjual from "./View/Penjual/DashboardPenjual";
+import DashboardPembeli from "./View/Pembeli/DashboardPembeli";
 export default class Routes extends Component{
     render(){
         return(
@@ -15,9 +18,12 @@ export default class Routes extends Component{
                 <Switch>
                     <Route path ="/" exact component={Home}/>
                     <Route path="/home" exact component={Home}/>
-                    <Route path="/Login" component={Login}/>
+                    <Route path="/Login" component={Login}/> 
                     <Route path = "/RegisterPenjual" component={RegisterPenjual}/>
                     <Route path ="/LoginPenjual" component={LoginPenjual}/>
+                    <Route path ="/profile" component={profile}/>
+                    <Route path ="/DashboardPenjual" component={DashboardPenjual}/>
+                    <Route path = "/DashboardPembeli" component={DashboardPembeli}/>
                 </Switch>
             </Router>
         )
