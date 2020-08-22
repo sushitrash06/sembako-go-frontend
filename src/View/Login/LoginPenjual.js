@@ -7,7 +7,6 @@ class LoginPenjual extends Component {
     this.state = {
       Username: '',
       Password: '',
-      Roles: '',
       errors: {}
     }
 
@@ -33,8 +32,11 @@ class LoginPenjual extends Component {
         }else if (this.state.Roles ==="Pembeli"){
           this.props.history.push(`/DashboardPembeli`)
         }else{
+          console.log(res.data)
           alert("Gagal Login, Masukan data dengan benar")
         }
+    }).catch(err=>{
+      console.log(err,"eror tanda")
     })
   }
 
