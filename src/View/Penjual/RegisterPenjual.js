@@ -13,17 +13,15 @@ class RegisterPenjual extends Component {
       Roles: '',
       errors: {}
     }
-
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.yesnoCheck=this.yesnoCheck.bind(this)
   }
-
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
   onSubmit(e) {
     e.preventDefault()
-
     const newUser = {
       Nama: this.state.Nama,
       Nama_toko: this.state.Nama_toko,
@@ -32,23 +30,24 @@ class RegisterPenjual extends Component {
       Alamat: this.state.Alamat,
       Roles: this.state.Roles
     }
-
     register(newUser).then(res => {
-      if (res){
-        if(Roles=="Penjual"){
+        if(this.state.Roles ==="Penjual"){
           this.props.history.push(`/DashboardPenjual`)
-        }else if (Roles=="Pembeli"){
-          this.props.history.push(`\DashboardPembeli`)
+        }else if (this.state.Roles ==="Pembeli"){
+          this.props.history.push(`/DashboardPembeli`)
         }else{
           alert("Gagal Register, Masukan data dengan benar")
         }
-      }
     })
   }
   yesnoCheck() {
     if (document.getElementById("yesCheck").checked) {
+      this.state.Roles="Penjual"
       document.getElementById("ifYes").style.visibility = "visible";
-    } else document.getElementById("ifYes").style.visibility = "hidden";
+    } else  {
+      this.state.Roles="Pembeli" 
+     document.getElementById("ifYes").style.visibility = "hidden";
+    }
   }
 
   render() {
@@ -71,21 +70,21 @@ class RegisterPenjual extends Component {
               </div>
               <div>
                 <p>Kamu adalah seorang : </p>
-                 Pembeli{" "}
+                 Penjual{" "}
                    <input
                     type="radio"
                     onClick={this.yesnoCheck}
                     name="yesno"
                     id="yesCheck"
-                    value={this.state.Roles==="Pembeli"}
+                    value="Penjual"
                     />
-                Penjual{" "}
+                Pembeli{" "}
                     <input
                       type="radio"
                       onClick={this.yesnoCheck}
                       name="yesno"
                       id="noCheck"
-                      value={this.state.Roles==="Penjual"}
+                      value="Pembeli"
                       onChange={this.onChange}
                     />
           <br />
@@ -103,6 +102,17 @@ class RegisterPenjual extends Component {
               </div>
             </div>
           </div>
+          <div className="form-group">
+                <label htmlFor="name">Alamat</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="Alamat"
+                  placeholder="Masukan Alamat"
+                  value={this.state.Alamat}
+                  onChange={this.onChange}
+                />
+              </div>
               <div className="form-group">
                 <label htmlFor="Username">Username</label>
                 <input

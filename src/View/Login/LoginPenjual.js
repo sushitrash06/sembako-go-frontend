@@ -7,6 +7,7 @@ class LoginPenjual extends Component {
     this.state = {
       Username: '',
       Password: '',
+      Roles: '',
       errors: {}
     }
 
@@ -22,19 +23,18 @@ class LoginPenjual extends Component {
 
     const user = {
       Username: this.state.Username,
-      Password: this.state.Password
+      Password: this.state.Password,
+      Roles: this.state.Roles
     }
 
     login(user).then(res => {
-      if (res) {
-        if(Roles=="Penjual"){
+        if(this.state.Roles ==="Penjual"){
           this.props.history.push(`/DashboardPenjual`)
-        }else if (Roles=="Pembeli"){
+        }else if (this.state.Roles ==="Pembeli"){
           this.props.history.push(`/DashboardPembeli`)
         }else{
           alert("Gagal Login, Masukan data dengan benar")
         }
-      }
     })
   }
 

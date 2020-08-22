@@ -5,13 +5,14 @@ export const register = newUser => {
     .post('Users/register',{
         Nama: newUser.Nama,
         Nama_toko: newUser.Nama_toko,
-        Alamat: newUser.Alamat,
         Username: newUser.Username,
         Password: newUser.Password,
+        Alamat: newUser.Alamat,
         Roles:newUser.Roles
     })
     .then(res => {
         console.log("Registed")
+        //console.log(req.body)
     })
 }
 
