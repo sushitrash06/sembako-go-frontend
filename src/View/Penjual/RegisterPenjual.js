@@ -31,6 +31,8 @@ class RegisterPenjual extends Component {
       Roles: this.state.Roles
     }
     register(newUser).then(res => {
+        localStorage.setItem('usertoken',res.data.token);
+        
         if(this.state.Roles ==="Penjual"){
           this.props.history.push(`/DashboardPenjual`)
         }else if (this.state.Roles ==="Pembeli"){
