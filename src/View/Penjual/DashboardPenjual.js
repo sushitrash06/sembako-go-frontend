@@ -12,7 +12,7 @@ class DashboardPenjual extends React.Component{
     }
   }
   componentDidMount(){
-    const token = localStorage.usertoken
+    const token = localStorage.getItem('usertoken');
     const decoded = jwt_decode(token)
     this.setState({
       Nama_toko: decoded.Nama_toko,
