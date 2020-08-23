@@ -12,7 +12,12 @@ export const register = newUser => {
     })
     .then(res => {
         console.log("Registed")
+        return res;
         //console.log(req.body)
+    })
+    .catch(err => {
+        console.log(err);
+        return err;
     })
 }
 
