@@ -31,16 +31,17 @@ class RegisterPenjual extends Component {
       Roles: this.state.Roles
     }
     register(newUser).then(res => {
-        if(this.state.Roles ==="Penjual"){
-          this.props.history.push(`/DashboardPenjual`)
-        }else if (this.state.Roles ==="Pembeli"){
-          this.props.history.push(`/DashboardPembeli`)
-        }else{
-          alert("Gagal Register, Masukan data dengan benar")
-        }
-    })
-  }
-  yesnoCheck() {
+      localStorage.setItem('usertoken',res.data.token);
+
+      if(this.state.Roles ==="Penjual"){
+        this.props.history.push(`/DashboardPenjual`)
+      }else if (this.state.Roles ==="Pembeli"){
+        this.props.history.push(`/DashboardPembeli`)
+      }else{
+        alert("Gagal Register, Masukan data dengan benar")
+      }
+  })
+}  yesnoCheck() {
     if (document.getElementById("yesCheck").checked) {
       this.state.Roles="Penjual"
       document.getElementById("ifYes").style.visibility = "visible";

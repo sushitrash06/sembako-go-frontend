@@ -22,6 +22,7 @@ import Menu from '@material-ui/core/Menu';
 //import Navbar from 'react-bootstrap';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Routes from '../Router';
 
 const useStyles = makeStyles((theme)=>({
   grow:{
@@ -158,6 +159,7 @@ export default function NavbarPenjual() {
 
 
   return(
+    <div>
     <Router>
       <ThemeProvider theme={theme} id="container">
         <div className={classes.root}>
@@ -214,6 +216,7 @@ export default function NavbarPenjual() {
         </div>
       </ThemeProvider>
     </Router>
-
+    <Routes/>
+  </div>
   );
 }

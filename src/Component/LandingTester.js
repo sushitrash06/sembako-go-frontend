@@ -7,7 +7,8 @@ class LandingTester extends Component {
     this.state = {
       Nama: '',
       Nama_toko: '',
-      Email: '',
+      Username: '',
+      Roles:'',
       errors: {}
     }
   }
@@ -18,7 +19,8 @@ class LandingTester extends Component {
     this.setState({
       Nama: decoded.Nama,
       Nama_toko: decoded.Nama_toko,
-      Email: decoded.Email
+      Username: decoded.Username,
+      Roles:decoded.Roles
     })
   }
 

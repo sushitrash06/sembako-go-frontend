@@ -17,6 +17,7 @@ import '../App.css';
 import { withRouter } from 'react-router-dom';
 import history from '../history';
 //import Navbar from 'react-bootstrap';
+import Routes from '../Router';
 
 
 
@@ -79,7 +80,7 @@ const theme = createMuiTheme({
 const NavbarAwal = (props)=> {
   const classes = useStyles();
   return (
-   
+    <div>
     <ThemeProvider theme={theme} id="container">
     <div className={classes.root}>
       <AppBar 
@@ -115,6 +116,8 @@ const NavbarAwal = (props)=> {
       </AppBar>
     </div>
   </ThemeProvider>
+  <Routes/>
+  </div>
   
   );
 }

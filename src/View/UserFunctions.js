@@ -12,7 +12,12 @@ export const register = newUser => {
     })
     .then(res => {
         console.log("Registed")
+        return res;
         //console.log(req.body)
+    })
+    .catch(err => {
+        console.log(err);
+        return err;
     })
 }
 
@@ -20,7 +25,8 @@ export const login = user =>{
     return axios
     .post('users/login', {
         Email: user.Email,
-        Password: user.Password
+        Password: user.Password,
+        Roles: user.Roles
     })
     .then(res =>{
         

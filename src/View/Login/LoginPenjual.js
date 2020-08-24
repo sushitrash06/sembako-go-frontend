@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { login} from '../UserFunctions';
+import jwt_decode from 'jwt-decode';
 
 class LoginPenjual extends Component {
   constructor() {
@@ -7,38 +8,49 @@ class LoginPenjual extends Component {
     this.state = {
       Username: '',
       Password: '',
+      Roles:'',
       errors: {}
     }
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    ///this.componentDidMount=this.componentDidMount(this)
   }
-
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
   onSubmit(e) {
     e.preventDefault()
-
+    const token = localStorage.usertoken
+    const decoded = jwt_decode(token)
+    this.setState({
+      Username: decoded.Username,
+      Password: decoded.Password,
+      Roles:decoded.Roles
+    })
     const user = {
       Username: this.state.Username,
       Password: this.state.Password,
       Roles: this.state.Roles
     }
-
     login(user).then(res => {
+      
         if(this.state.Roles ==="Penjual"){
           this.props.history.push(`/DashboardPenjual`)
         }else if (this.state.Roles ==="Pembeli"){
           this.props.history.push(`/DashboardPembeli`)
-        }else{
-          console.log(res.data)
-          alert("Gagal Login, Masukan data dengan benar")
+        }else{ 
+          this.props.history.push(`/profile`)
         }
-    }).catch(err=>{
-      console.log(err,"eror tanda")
     })
   }
+  ////*{componentDidMount(){
+    ///const token = localStorage.usertoken
+    //const decoded = jwt_decode(token)
+    ///this.setState({
+      ///Roles: decoded.Roles
+    //})
+  //}
 
   render() {
     return (

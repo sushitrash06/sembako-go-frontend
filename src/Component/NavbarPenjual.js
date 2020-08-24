@@ -18,6 +18,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 //import Masuk from '../Tampilan/LoginUser';
 import { withRouter } from 'react-router-dom';
 import history from '../history';
+import Routes from '../Router';
 import Menu from '@material-ui/core/Menu';
 //import Navbar from 'react-bootstrap';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -58,6 +59,12 @@ const theme = createMuiTheme({
   },
 });
 export default function NavbarPenjual() {
+  
+  const logOut=()=>{
+    localStorage.removeItem('usertoken')
+    this.props.history.push(`/`)
+  }
+
   const classes=useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl,setMobileMoreAnchorEl]=React.useState(null);
@@ -92,7 +99,7 @@ export default function NavbarPenjual() {
       <MenuItem onClick={handleMenuClose}>Edit Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>Riwayat Transaksi</MenuItem>
       <MenuItem onClick={handleMenuClose}>Daftar Produk</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
+      <MenuItem onClick={logOut}>Log Out</MenuItem>
     </Menu>
   );
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -122,6 +129,7 @@ export default function NavbarPenjual() {
 
 
   return(
+  <div>
     <Router>
       <ThemeProvider theme={theme} id="container">
         <div className={classes.root}>
@@ -165,6 +173,7 @@ export default function NavbarPenjual() {
         </div>
       </ThemeProvider>
     </Router>
-
+  <Routes/>
+  </div>
   );
 }
