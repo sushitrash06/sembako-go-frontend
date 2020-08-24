@@ -60,11 +60,6 @@ const theme = createMuiTheme({
 });
 export default function NavbarPenjual() {
   
-  const logOut=()=>{
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
-  }
-
   const classes=useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl,setMobileMoreAnchorEl]=React.useState(null);
@@ -99,7 +94,7 @@ export default function NavbarPenjual() {
       <MenuItem onClick={handleMenuClose}>Edit Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>Riwayat Transaksi</MenuItem>
       <MenuItem onClick={handleMenuClose}>Daftar Produk</MenuItem>
-      <MenuItem onClick={logOut}>Log Out</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
     </Menu>
   );
   const mobileMenuId = 'primary-search-account-menu-mobile';

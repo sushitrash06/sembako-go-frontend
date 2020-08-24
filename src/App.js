@@ -21,11 +21,16 @@ import { login, register } from './View/UserFunctions';
 class App extends React.Component{
   constructor(){
     super()
-    this.state={
-      Roles:'',
-      errors:{}
+      this.state={
+        Roles: '',
+          }
+      }
+  render(){
+    const token = localStorage.getItem('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoxOSwiTmFtYV90b2tvIjoiTmlob25nbyBNYW50YXBwdSIsIlVzZXJuYW1lIjoiamFyb21lIiwiUm9sZXMiOiJQZW5qdWFsIiwiaWF0IjoxNTk4MzAyMjg2LCJleHAiOjE1OTgzMDM3MjZ9.NDUbgXG1mLfXqHiAyTfruICDW7nsvVYMXAhANIqIsPM')
+    console.log(token);
+    if (token === null ){
+      return <NavbarAwal/>
     }
-    const token = localStorage.userToken
     const decoded = jwt_decode(token)
       this.setState({
         Roles:decoded.Roles
@@ -36,8 +41,8 @@ class App extends React.Component{
       const newUser ={
         Roles : this.state.Roles
       }
+      console.log(login(user))
       if(login(user)){
-        localStorage.setItem('usertoken',token);
         if(this.state.Roles==="Penjual"){
           return <NavbarPenjual/>;
         }else if(this.state.Roles ==="Pembeli"){
@@ -45,8 +50,8 @@ class App extends React.Component{
         }else{
           return <NavbarAwal/>;
         }
+
       }else if(register(newUser)){
-        localStorage.setItem('usertoken',token);
         if(this.state.Roles==="Penjual"){
           return <NavbarPenjual/>;
         }else if(this.state.Roles ==="Pembeli"){
@@ -57,6 +62,7 @@ class App extends React.Component{
       }else{
         return <NavbarAwal/>;
       }
-  }
+}
+
 }
 export default App;

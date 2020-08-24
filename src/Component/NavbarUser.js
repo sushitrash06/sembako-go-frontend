@@ -23,6 +23,7 @@ import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Routes from '../Router';
+import jwt_decode from 'jwt-decode';
 
 const useStyles = makeStyles((theme)=>({
   grow:{
@@ -96,6 +97,11 @@ const theme = createMuiTheme({
   },
 });
 export default function NavbarPenjual() {
+  const token = localStorage.getItem('usertoken')
+  const decoded = jwt_decode(token)
+      this.setState({
+        Roles:decoded.Roles
+      })
   const classes=useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl,setMobileMoreAnchorEl]=React.useState(null);
