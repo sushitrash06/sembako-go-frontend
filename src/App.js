@@ -12,57 +12,18 @@ import 'react-bootstrap';
 //import Figure from 'react-bootstrap/Figure';
 //import FigureImage from 'react-bootstrap/FigureImage';
 //import FigureCaption from 'react-bootstrap/FigureCaption';
-//import Footer from './Component/Footer';
+import Footer from './Component/Footer'; 
 //import Routes from './Router';
 import NavbarPembeli from './Component/NavbarUser';
 import NavbarPenjual from './Component/NavbarPenjual';
 import { login, register } from './View/UserFunctions';
+import Routes from './Router';
 
-class App extends React.Component{
-  constructor(){
-    super()
-      this.state={
-        Roles: '',
-          }
-      }
-  render(){
-    const token = localStorage.getItem('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoxOSwiTmFtYV90b2tvIjoiTmlob25nbyBNYW50YXBwdSIsIlVzZXJuYW1lIjoiamFyb21lIiwiUm9sZXMiOiJQZW5qdWFsIiwiaWF0IjoxNTk4MzAyMjg2LCJleHAiOjE1OTgzMDM3MjZ9.NDUbgXG1mLfXqHiAyTfruICDW7nsvVYMXAhANIqIsPM')
-    console.log(token);
-    if (token === null ){
-      return <NavbarAwal/>
-    }
-    const decoded = jwt_decode(token)
-      this.setState({
-        Roles:decoded.Roles
-      })
-      const user = {
-        Roles: this.state.Roles
-      }
-      const newUser ={
-        Roles : this.state.Roles
-      }
-      console.log(login(user))
-      if(login(user)){
-        if(this.state.Roles==="Penjual"){
-          return <NavbarPenjual/>;
-        }else if(this.state.Roles ==="Pembeli"){
-          return <NavbarPembeli/>;
-        }else{
-          return <NavbarAwal/>;
-        }
 
-      }else if(register(newUser)){
-        if(this.state.Roles==="Penjual"){
-          return <NavbarPenjual/>;
-        }else if(this.state.Roles ==="Pembeli"){
-          return <NavbarPembeli/>;
-        }else{
-          return <NavbarAwal/>;
-        }
-      }else{
-        return <NavbarAwal/>;
-      }
+export default function App(){
+  return(
+    <div id="root">
+      <Routes/>
+    </div>
+  );
 }
-
-}
-export default App;

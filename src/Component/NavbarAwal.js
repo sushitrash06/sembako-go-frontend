@@ -17,7 +17,7 @@ import '../App.css';
 import { withRouter } from 'react-router-dom';
 import history from '../history';
 //import Navbar from 'react-bootstrap';
-import Routes from '../Router';
+//import Routes from '../Router';
 
 
 
@@ -116,7 +116,6 @@ const NavbarAwal = (props)=> {
       </AppBar>
     </div>
   </ThemeProvider>
-  <Routes/>
   </div>
   
   );

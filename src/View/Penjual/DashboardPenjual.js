@@ -2,6 +2,7 @@ import React from 'react';
 import {CardGroup,Card} from 'react-bootstrap';
 import jwt_decode from 'jwt-decode';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarPenjual from '../../Component/NavbarPenjual';
 
 class DashboardPenjual extends React.Component{
 
@@ -22,6 +23,7 @@ class DashboardPenjual extends React.Component{
   render(){
     return(
 <div className="DashboardPenjual">
+  <NavbarPenjual/>
   <h1>Welcome : </h1>
   <h1>{this.state.Nama_toko}</h1>
 <CardGroup>

@@ -23,18 +23,17 @@ export const register = newUser => {
 
 export const login = user =>{
     return axios
-    .post('users/login', {
+    .post('Users/login', {
         Email: user.Email,
         Password: user.Password,
         Roles: user.Roles
     })
     .then(res =>{
-        
-        localStorage.setItem('usertoken',res.data)
-        return res.data
-        
+        console.log(res.data);
+        localStorage.setItem('usertoken',res.token)
+        return res.data  
     })
     .catch(err =>{
-        console.log(err,"user function")
+        return err;
     })
 }

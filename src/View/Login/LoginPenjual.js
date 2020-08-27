@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { login} from '../UserFunctions';
 import jwt_decode from 'jwt-decode';
+import NavbarAwal from '../../Component/NavbarAwal';
 
 class LoginPenjual extends Component {
   constructor() {
@@ -21,27 +22,27 @@ class LoginPenjual extends Component {
   }
   onSubmit(e) {
     e.preventDefault()
-    const token = localStorage.usertoken
-    const decoded = jwt_decode(token)
-    this.setState({
-      Username: decoded.Username,
-      Password: decoded.Password,
-      Roles:decoded.Roles
-    })
     const user = {
       Username: this.state.Username,
       Password: this.state.Password,
       Roles: this.state.Roles
     }
     login(user).then(res => {
-      
-        if(this.state.Roles ==="Penjual"){
+      const token = localStorage.getItem('usertoken')
+      const decoded = token ? jwt_decode(token) : null;
+      this.setState({
+        Roles:decoded ? decoded.Roles : null
+      })
+      localStorage.setItem('usertoken',res.data.token);
+      if(this.state.Roles ==="Penjual"){
           this.props.history.push(`/DashboardPenjual`)
         }else if (this.state.Roles ==="Pembeli"){
           this.props.history.push(`/DashboardPembeli`)
         }else{ 
-          this.props.history.push(`/profile`)
+          alert("Gagal Login, coba lagi!")
         }
+    }).catch((err)=>{
+      console.log(err);
     })
   }
   ////*{componentDidMount(){
@@ -54,6 +55,8 @@ class LoginPenjual extends Component {
 
   render() {
     return (
+      <div id="root">
+        <NavbarAwal/>
       <div className="container">
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
@@ -91,6 +94,7 @@ class LoginPenjual extends Component {
           </div>
         </div>
       </div>
+    </div>
     )
   }
 }

@@ -13,6 +13,7 @@ import '@material-ui/core/colors';
 import {useMediaQuery} from 'react-responsive';
 import history from '../history';
 import {BrowserRouter as Router,withRouter} from 'react-router-dom';
+import NavbarAwal from '../Component/NavbarAwal';
 //import { withRouter } from 'react-router-dom';
 
 const Desktop = ({ children }) => {
@@ -103,6 +104,7 @@ const LoginIndex =(props)=> {
 
     return(
     <Router>
+    <NavbarAwal/>
     <ThemeProvider theme={warna} id="container">
     <div className={classes.root}>
      <Desktop>
