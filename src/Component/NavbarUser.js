@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //import ReactDOM from 'react-dom';
 import {fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -96,12 +96,8 @@ const theme = createMuiTheme({
     },
   },
 });
-export default function NavbarPenjual() {
-  const token = localStorage.getItem('usertoken')
-  const decoded = jwt_decode(token)
-      this.setState({
-        Roles:decoded.Roles
-      })
+export default function NavbarUser() {
+      
   const classes=useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl,setMobileMoreAnchorEl]=React.useState(null);
@@ -135,7 +131,9 @@ export default function NavbarPenjual() {
     >
       <MenuItem onClick={handleMenuClose}>Edit Akun</MenuItem>
       <MenuItem onClick={handleMenuClose}>Riwayat Transaksi</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
+      <MenuItem onClick={()=>{
+                    localStorage.removeItem("usertoken")
+                    history.push('/')}}>Log Out</MenuItem>
     </Menu>
   );
   const mobileMenuId = 'primary-search-account-menu-mobile';

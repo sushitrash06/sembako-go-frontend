@@ -20,31 +20,46 @@ class LoginPenjual extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
-  onSubmit(e) {
-    e.preventDefault()
+  async onSubmit(e) {
+    e.preventDefault();
     const user = {
       Username: this.state.Username,
       Password: this.state.Password,
-      Roles: this.state.Roles
-    }
-    login(user).then(res => {
-      const token = localStorage.getItem('usertoken')
-      const decoded = token ? jwt_decode(token) : null;
-      this.setState({
-        Roles:decoded ? decoded.Roles : null
-      })
-      localStorage.setItem('usertoken',res.data.token);
-      if(this.state.Roles ==="Penjual"){
+    }  
+        /* const token = localStorage.getItem('usertoken')*/
+         //const decoded = token ? jwt_decode(token) : null;
+         // this.setState({
+         //   Roles:decoded ? decoded.Roles : null
+          //)
+          //console.log(typeof user.Username, typeof user.Password,'test');*/
+    await login(user).then(token=>{
+      if (token) {
+        const decoded = jwt_decode(token);
+        if (decoded.Roles === "Penjual") {
+          console.log(decoded.Roles)
           this.props.history.push(`/DashboardPenjual`)
-        }else if (this.state.Roles ==="Pembeli"){
+        } else if (decoded.Roles === "Pembeli") {
           this.props.history.push(`/DashboardPembeli`)
-        }else{ 
-          alert("Gagal Login, coba lagi!")
+        } else {
+          alert("Gagal Login,coba lagi")
         }
-    }).catch((err)=>{
-      console.log(err);
-    })
-  }
+      }
+      /* if (res.data.token){
+        localStorage.setItem('usertoken',res.data.token);
+        if(decoded.Roles ==="Penjual"){
+            this.props.history.push(`/DashboardPenjual`)
+          }else if (decoded.Roles ==="Pembeli"){
+            this.props.history.push(`/DashboardPembeli`)
+          }else{ 
+            alert("Gagal Login, coba lagi!")
+          }
+        } */
+      } ).catch((err)=>{
+        console.log(err);
+      })
+    }
+      
+    
   ////*{componentDidMount(){
     ///const token = localStorage.usertoken
     //const decoded = jwt_decode(token)
@@ -56,7 +71,6 @@ class LoginPenjual extends Component {
   render() {
     return (
       <div id="root">
-        <NavbarAwal/>
       <div className="container">
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
@@ -98,5 +112,4 @@ class LoginPenjual extends Component {
     )
   }
 }
-
 export default LoginPenjual;

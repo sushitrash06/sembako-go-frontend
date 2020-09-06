@@ -24,16 +24,16 @@ export const register = newUser => {
 export const login = user =>{
     return axios
     .post('Users/login', {
-        Email: user.Email,
+        Username: user.Username,
         Password: user.Password,
-        Roles: user.Roles
+        //Roles: user.Roles
     })
     .then(res =>{
-        console.log(res.data);
-        localStorage.setItem('usertoken',res.token)
-        return res.data  
+        localStorage.setItem('usertoken',res.data)
+        return res.data
     })
     .catch(err =>{
+        console.log('err', err);
         return err;
     })
 }

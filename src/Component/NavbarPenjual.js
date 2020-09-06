@@ -96,7 +96,9 @@ export default function NavbarPenjual() {
       <MenuItem onClick={handleMenuClose}>Daftar Produk</MenuItem>
       <MenuItem onClick={()=>{
                     localStorage.removeItem("usertoken")
-                    history.push('/')}}>Log Out</MenuItem>
+                    handleMenuClose();
+                    history.push('/')
+                    }}>Log Out</MenuItem>
     </Menu>
   );
   const mobileMenuId = 'primary-search-account-menu-mobile';

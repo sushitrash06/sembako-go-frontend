@@ -104,7 +104,6 @@ const LoginIndex =(props)=> {
 
     return(
     <Router>
-    <NavbarAwal/>
     <ThemeProvider theme={warna} id="container">
     <div className={classes.root}>
      <Desktop>
