@@ -3,7 +3,7 @@ import { login} from '../UserFunctions';
 import jwt_decode from 'jwt-decode';
 import NavbarAwal from '../../Component/NavbarAwal';
 
-class LoginPenjual extends Component {
+class Login extends Component {
   constructor() {
     super()
     this.state = {
@@ -71,6 +71,7 @@ class LoginPenjual extends Component {
   render() {
     return (
       <div id="root">
+        <NavbarAwal/>
       <div className="container">
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
@@ -112,4 +113,4 @@ class LoginPenjual extends Component {
     )
   }
 }
-export default LoginPenjual;
+export default Login;

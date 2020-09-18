@@ -7,6 +7,7 @@ import NavbarAwal from '../Component/NavbarAwal';
 export default function TampilanAwal(){
     return(
         <div>
+            <NavbarAwal/>
             <Banner/>
             <About/>
             <Footer/>

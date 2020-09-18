@@ -4,16 +4,13 @@ import Home from "../src/View/TampilanAwal";
 import history from "./history";
 //import LoginPembeli from "./View/Login/LoginPembeli";
 import Login from "./View/LoginIndex";
-import LoginPenjual from "./View/Login/LoginPenjual";
-import RegisterPenjual from "./View/Penjual/RegisterPenjual";
+import LoginPenjual from "./View/Login/Login";
+import RegisterPenjual from "./View/Penjual/Register";
 import profile from "./Component/LandingTester";
 //import Landing from "./Component/Landing";
 import DashboardPenjual from "./View/Penjual/DashboardPenjual";
 import DashboardPembeli from "./View/Pembeli/DashboardPembeli";
-import NavbarPembeli from './Component/NavbarUser';
-import NavbarPenjual from './Component/NavbarPenjual';
-import NavbarAwal from './Component/NavbarAwal';
-import jwt_decode from 'jwt-decode';
+import TambahProduk from './View/Penjual/TambahProduk';
 
 class Routes extends Component{
   /*constructor() {
@@ -60,6 +57,7 @@ class Routes extends Component{
                     <Route path ="/profile" component={profile}/>
                     <Route path ="/DashboardPenjual" component={DashboardPenjual}/>
                     <Route path = "/DashboardPembeli" component={DashboardPembeli}/>
+                    <Route path = "/TambahProduk" component={TambahProduk}/>
                 </Switch>
             </Router>
         )

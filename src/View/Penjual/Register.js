@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { register } from '../UserFunctions';
-
-class RegisterPenjual extends Component {
+import Navbar from '../../Component/NavbarAwal';
+class Register extends Component {
   constructor() {
     super()
     this.state = {
@@ -30,7 +30,7 @@ class RegisterPenjual extends Component {
       Alamat: this.state.Alamat,
       Roles: this.state.Roles
     }
-    register(newUser).then(res => {
+    register(newUser).then(res => { 
 
       localStorage.setItem('usertoken',res.data.token);
       
@@ -51,7 +51,6 @@ class RegisterPenjual extends Component {
      document.getElementById("ifYes").style.visibility = "hidden";
     }
   }
-
   render() {
     return (
       <div className="container">
@@ -151,4 +150,4 @@ class RegisterPenjual extends Component {
   }
 }
 
-export default RegisterPenjual;
+export default Register;
