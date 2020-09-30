@@ -2,11 +2,13 @@ import React from 'react'
 import jwt_decode from 'jwt-decode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarPenjual from '../../Component/NavbarPenjual';
-import {addproduk} from '../../View/UserFunctions';
+// import {addproduk} from '../../View/UserFunctions';
+import axios from 'axios'
 import { Form,Col, Button } from 'react-bootstrap';
 
 
 class TambahProduk extends React.Component{
+    
     constructor(){
         super()
         this.state={
@@ -23,47 +25,48 @@ class TambahProduk extends React.Component{
         this.onSubmit=this.onSubmit.bind(this)
     }
     componentDidMount(){
-    const token = localStorage.getItem('usertoken')
-    const decoded= token ? jwt_decode(token) : null;
+        const token = localStorage.getItem('usertoken')
+        const decoded= token ? jwt_decode(token) : null;
         this.setState({
-            id_user:decoded ? decoded.id_user : null,
-            Nama_toko: decoded ? decoded.Nama_toko : null
+            id_user:decoded.id_user,
+            Nama_toko:decoded.Nama_toko
         })
-        console.log(decoded.id_user)
-    }
-    onChange(e){
-        this.setState({[e.target.name]:e.target.value})
     }
     onSubmit(e){
         e.preventDefault()
-        const newProduk={
-            id_user:this.state.id_user,
-            Nama_produk: this.state.Nama_produk,
-            Nama_Toko: this.state.Nama_toko,
-            Harga:this.state.Harga,
-            image: this.state.image,
-            Deskripsi: this.state.Deskripsi,
-            Jumlah_produk: this.state.Jumlah_produk,
-        }
-        addproduk(newProduk).then((res)=>{
-            this.getAll() 
-            //localStorage.setItem('usertoken',res.data.token);
-            if(res){
-            this.props.history.push(`/DashboardPenjual`)
-            }else{
-                alert("Gagal tambah produk")
+        const newProduk= new FormData();
+        newProduk.append ("id_user",this.state.id_user);
+        newProduk.append("Nama_toko",this.state.Nama_toko)
+        newProduk.append("Nama_Produk", this.state.Nama_Produk);
+        newProduk.append("Price",this.state.Price);
+        newProduk.append("image", this.state.image);
+        newProduk.append("Deskripsi", this.state.Deskripsi);
+        newProduk.append("Jumlah_stock", this.state.Jumlah_stock);
+        const config = {
+            headers: {
+                'content-type' : 'multipart/form-data'
             }
-                }).catch(err=>{
-                    console.log(err)
+        }
+        console.log(newProduk)
+        axios.post('product/addproduk', newProduk,config)
+            .then((response)=>{
+                this.props.history.push(`/DashboardPenjual`);
+            }).catch((err)=>{
+                console.log(err)
             })
     }
-    
+    onChange(e){
+        this.setState({
+            [e.target.name]: e.target.name === "image"? e.target.files[0] : e.target.value          
+        })
+    }
     render(){
         return(
             <div>
                 <NavbarPenjual/>
-                <h2>Tambah Produk</h2>
-                <Form className="container"style={{marginTop:28}}> 
+                
+                <Form className="container"style={{marginTop:28}}  noValidate onSubmit={this.onSubmit}> 
+                    <h2>Tambah Produk</h2>
                     <Form.Row controlId="exampleForm.ControlInput1">
                         <Form.Label column lg={2}>
                             Nama Produk  
@@ -73,8 +76,8 @@ class TambahProduk extends React.Component{
                             <Form.Control 
                             type="text" 
                             placeholder="Masukan Nama Produk"
-                            name="Nama_produk"
-                            value={this.state.Nama_produk}
+                            name="Nama_Produk"
+                            value={this.state.Nama_Produk}
                             onChange={this.onChange}
                             />
                         </Col>
@@ -88,8 +91,8 @@ class TambahProduk extends React.Component{
                         <Col>
                             <Form.Control type="text" 
                             placeholder="Masukan Harga Produk"
-                            name="Harga"
-                            value={this.state.Harga}
+                            name="Price"
+                            value={this.state.Price}
                             onChange={this.onChange}
                             />
                         </Col>
@@ -104,8 +107,8 @@ class TambahProduk extends React.Component{
                             <Form.Control 
                             type="text" 
                             placeholder="Masukan Jumlah Produk"
-                            name="Jumlah_produk"
-                            value={this.state.Jumlah_produk}
+                            name="Jumlah_stock"
+                            value={this.state.Jumlah_stock}
                             onChange={this.onChange}
                             />
                         </Col>
@@ -131,34 +134,46 @@ class TambahProduk extends React.Component{
                         <Form.Group>
                         <Form.File 
                         id="exampleFormControlFile1" 
-                        label="Example file input" 
-                        accept="image/*"
+                        label="Masukan Foto Produk" 
                         type="image"
-                        name="Image"
-                        value={this.state.image}
+                        name="image"
+                        value={this.setState.image}
                         onChange={this.onChange}
                         />
                         </Form.Group>
                     </Form.Row>
                     <br/>
-                    <Form.Row style={{visibility: "hidden"}}controlId="exampleForm.ControlInput1">
+                    <button 
+                        type="submit"
+                        className="btn btn-lg btn-primary btn-block"
+                    >Submit</button>
+                    <Form.Row controlId="exampleForm.ControlInput1" style={{ visibility: "hidden" }}>
                         <Col>
-                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Group controlId="exampleForm.ControlInput1">
                             <br/>
                             <Form.Control 
-                            as="textarea" 
-                            rows="3"
-                            name="Deskripsi"
+                            as="text" 
+                            name="id_user"
                             value={this.state.id_user}
                             onChange={this.onChange}
                             />
                         </Form.Group>    
                         </Col>
                     </Form.Row>
-                    <Button
-                        type="submit"
-                        className="btn btn-lg btn-primary btn-block"
-                    >Submit</Button>
+                    <Form.Row controlId="exampleForm.ControlInput1" style={{ visibility: "hidden" }}>
+                        <Col>
+                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <br/>
+                            <Form.Control disabled
+                            as="area" 
+                            name="Nama_toko"
+                            value={this.state.Nama_toko}
+                            onChange={this.onChange}
+                            />
+                        </Form.Group>    
+                        </Col>
+                    </Form.Row>
+
                 </Form>
             </div>
         )

@@ -8,10 +8,10 @@ import '../App.css';
 
 function Copyright() {
     return (
-      <Typography variant="body2" color="textSecondary" className="copikanan">
+      <Typography style={{textAlign:'center'}} variant="body2" color="textSecondary" className="copikanan">
         {'Copyright © '}
-        <Link color="inherit" href="https://github.com/sampahsushi06" className="linknya" align="center">
-          Github  - SampahSushi06
+        <Link color="inherit" href="https://github.com/sushitrash06" className="linknya" align="center">
+          Github  - Sushitrash06
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}

@@ -6,12 +6,14 @@ render(){
     const style1 ={
         display: 'block',
         margin: 'auto',
-        width: "70%",
+        width: "50%",
     };
 
     return(
         <div id = "About-style">
-            <h1>About Sembako Go!</h1>
+            <h1 style={{textAlign:'center'}}>About Sembako Go!</h1>
+            <br/>
+            <br/>
             <img
             className = "Gambar1"
             style={style1}
@@ -19,7 +21,9 @@ render(){
             alt ="gambar"
             >
             </img>
-            <p>“Sembako Go!” merupakan sebuah wadah  jual beli khusus sembako berbasis web yang target penggunanya adalah pedagang sembako besar untuk menjual sembakonya , pedagang sembako kecil untuk membeli pasokan barang jualan di warung mereka dan masyarakat yang tidak memiliki banyak waktu untuk berbelanja.</p>
+            <br/>
+            <br/>
+            <p style={{textAlign:'center'}}>“Sembako Go!” merupakan sebuah wadah  jual beli khusus sembako berbasis web yang target penggunanya adalah pedagang sembako besar untuk menjual sembakonya , pedagang sembako kecil untuk membeli pasokan barang jualan di warung mereka dan masyarakat yang tidak memiliki banyak waktu untuk berbelanja.</p>
         </div>
     );
 }

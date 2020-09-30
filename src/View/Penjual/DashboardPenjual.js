@@ -25,19 +25,21 @@ class DashboardPenjual extends React.Component{
 
   render(){
     return(
-
-        <div className="DashboardPenjual">
-          <NavbarPenjual/>
-                  <Button onClick={()=> history.push('/TambahProduk')}>
-                   Tambah Produk
-                  </Button>
+<div>
+  <NavbarPenjual/>
+        <div className="container">
+                
             <h1>Welcome : </h1>
             <h1>{this.state.Nama_toko}</h1>
-              <div className="container">
+            <Button style={{marginBottom:"30px",marginTop:"30px"}}onClick={()=> history.push('/TambahProduk')}>
+                   Tambah Produk
+                  </Button>
+              <div>
+              
                   <ProdukList/>
               </div>
           </div>
-
+</div>
     )}
 }
 export default DashboardPenjual;

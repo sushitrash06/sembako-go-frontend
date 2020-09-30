@@ -39,20 +39,21 @@ export const login = user =>{
         return err;
     })
 }
-export const addproduk = produk =>{
+export const addproduk = newProduk =>{
     return axios
     .post('product/addproduk',{
-        id_user:produk.id_user,
-        Nama_toko:produk.Nama_toko,
-        Nama_Produk:produk.Nama_Produk,
-        image: produk.Nama_Produk,
-        Deskripsi:produk.Deskripsi,
-        Price:produk.Price,
-        Jumlah_stock:produk.Jumlah_stock
-    },
+        id_user:newProduk.id_user,
+        Nama_toko:newProduk.Nama_toko,
+        Nama_Produk:newProduk.Nama_Produk,
+        image: newProduk.image,
+        Deskripsi:newProduk.Deskripsi,
+        Price:newProduk.Price,
+        Jumlah_stock:newProduk.Jumlah_stock
+    }, 
     {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'multipart/form-data' }
     }
+    
     )
     .then(res=>{
         console.log("produk di tambahkan")
