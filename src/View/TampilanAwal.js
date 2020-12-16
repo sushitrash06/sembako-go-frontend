@@ -3,7 +3,7 @@ import About from '../Component/About';
 import Banner from '../Component/Banner';
 import Footer from '../Component/Footer';
 import NavbarAwal from '../Component/NavbarAwal';
-import Cari from '../Component/CariTampilan';
+import PreviewProduk from '../View/PreviewProduk';
 
 export default function TampilanAwal(){
     return(
@@ -11,7 +11,7 @@ export default function TampilanAwal(){
             <NavbarAwal/>
             <Banner/>
             <About/>
-            <Cari/>
+            <PreviewProduk/>
             <Footer/>
         </div>
     );

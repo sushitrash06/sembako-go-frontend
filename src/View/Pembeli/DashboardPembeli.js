@@ -3,6 +3,7 @@ import {CardGroup,Card} from 'react-bootstrap';
 import jwt_decode from 'jwt-decode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarUser from '../../Component/NavbarUser'
+// import CariProduk from './trash/cari_config'
 
 class DashboardPembeli extends React.Component{
 
@@ -32,7 +33,7 @@ class DashboardPembeli extends React.Component{
                   <Card.Body>
                     <Card.Title>Card title</Card.Title>
                     <Card.Text>
-                      This is a wider card with supporting text below as a natural lead-in to
+                      This is a wider card with suppo rting text below as a natural lead-in to
                       additional content. This content is a little bit longer.
                     </Card.Text>
                   </Card.Body>

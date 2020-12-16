@@ -130,7 +130,7 @@ const LoginIndex =(props)=> {
             <Grid container justify="center" spacing={spacing}>
                 <Paper className={classes.paper}>
                     <img className={classes.img2} alt="pemebeli" src={gambarpembeli}></img>
-                        <Button justify="center"onClick={()=> history.push('/RegisterPenjual')}>Register</Button>
+                        <Button justify="center"onClick={()=> history.push('/Register')}>Register</Button>
                 </Paper>
                 </Grid>
             </Grid>

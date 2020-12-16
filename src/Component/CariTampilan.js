@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/core/styles'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Typography from '@material-ui/core/Typography'
 import image1 from '../img/banner_cari2.png'
+import history from '../history';
 
 
 const useStyle = makeStyles((theme)=>({
@@ -92,7 +93,7 @@ image:{
                 style={{
                     width: '100%',    
                 }}
-             >
+                ConClick={()=> history.push('/Cari')}>
                  <span
                     className={classes.imageSrc}
                     style={{

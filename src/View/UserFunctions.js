@@ -1,5 +1,5 @@
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
+
 
 export const register = newUser => {
     return axios
@@ -9,6 +9,8 @@ export const register = newUser => {
         Username: newUser.Username,
         Password: newUser.Password,
         Alamat: newUser.Alamat,
+        Kota: newUser.Kota,
+        Foto: newUser.Foto,
         Roles:newUser.Roles
     })
     .then(res => {
@@ -39,69 +41,21 @@ export const login = user =>{
         return err;
     })
 }
-export const addproduk = newProduk =>{
+
+export const loginAdmin = Admin =>{
     return axios
-    .post('product/addproduk',{
-        id_user:newProduk.id_user,
-        Nama_toko:newProduk.Nama_toko,
-        Nama_Produk:newProduk.Nama_Produk,
-        image: newProduk.image,
-        Deskripsi:newProduk.Deskripsi,
-        Price:newProduk.Price,
-        Jumlah_stock:newProduk.Jumlah_stock
-    }, 
-    {
-        headers: { 'Content-Type': 'multipart/form-data' }
-    }
-    
-    )
-    .then(res=>{
-        console.log("produk di tambahkan")
-        return res
+    .post('admin/login', {
+        Username: Admin.Username,
+        Password: Admin.Password,
+        //Roles: user.Roles
     })
-    .catch(err=>{
-        console.log(err);
-        return err;
-    })
-}
-export const deleteproduk = produk =>{
-    return axios
-    .delete(`/product/addproduk/${produk}`,{
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(function(res){
-        console.log(res)
-    }).catch(function(err){
-        console.log(err)
-    })
-}
-export const updateproduk = (produk,id_produk) =>{
-    
-    return axios
-    .put(`/product/addproduk/${id_produk}`,{
-        id_user:produk.id_user,
-        Nama_toko:produk.Nama_toko,
-        Nama_Produk:produk.Nama_Produk,
-        image: produk.Nama_Produk,
-        Deskripsi:produk.Deskripsi,
-        Price:produk.Price,
-        Jumlah_stock:produk.Jumlah_stock
-    }).then(function(res){
-        console.log(res)
-    }).catch(function(err){
-        console.log(err)
-    })
-}
-export const getProduk =()=>{
-    const token = localStorage.getItem('usertoken');
-    const decoded = jwt_decode(token)
-    const id = decoded.id_user
-    console.log("idnya adalah",id)
-    return axios
-    .get(`/product/?id_user=${id}`,{
-        headers: { 'Content-Type': 'application/json' }
-    }).then(res =>{
+    .then(res =>{ 
+        console.log(res.data);
+        localStorage.setItem('usertoken',res.data)
         return res.data
     })
-    
+    .catch(err =>{
+        console.log('err', err);
+        return err;
+    })
 }

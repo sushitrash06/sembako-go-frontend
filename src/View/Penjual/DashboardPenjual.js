@@ -1,18 +1,18 @@
 import React from 'react';
-import {CardGroup,Card,Modal, Form,ButtonToolbar, Button} from 'react-bootstrap';
+import {Form, Row, Col} from 'react-bootstrap';
 import jwt_decode from 'jwt-decode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarPenjual from '../../Component/NavbarPenjual';
-// import addproduk from '../../View/UserFunctions';
-import history from '../../history';
-import ProdukList from './Produklist';
+import { Paper } from '@material-ui/core';
+import gambar from './Penjual.png';
+import ProdukView from './ViewProdukKu';
 
 class DashboardPenjual extends React.Component{
   constructor(){
     super()
     this.state=
     {
-      Nama_toko: ''
+      Nama_toko: '',
     }
   }
   componentDidMount(){
@@ -25,20 +25,34 @@ class DashboardPenjual extends React.Component{
 
   render(){
     return(
-<div>
-  <NavbarPenjual/>
-        <div className="container">
-                
-            <h1>Welcome : </h1>
-            <h1>{this.state.Nama_toko}</h1>
-            <Button style={{marginBottom:"30px",marginTop:"30px"}}onClick={()=> history.push('/TambahProduk')}>
-                   Tambah Produk
-                  </Button>
-              <div>
-              
-                  <ProdukList/>
+<div style={{margin:"0px"}}>
+  <NavbarPenjual/>       
+  <div style={{margin:"0px"}}>
+          <Paper style={{backgroundColor:"#96d6b1"}}>
+          <Form>
+            <Row className="container">
+              <Col>
+              <div className="container">
+                <br/>
+                <h1 style={{color:"#ffff"}}>Welcome :</h1>
+                <h1 style={{color:"#ffff"}}>{this.state.Nama_toko}</h1>
               </div>
-          </div>
+              </Col>
+              <Col>
+              <br/>
+              <div>
+                <img align="right"style={{width:"70%"}} src={gambar} alt="gambar"/>
+              </div>
+              </Col>
+              </Row>
+          </Form>
+          <br/>
+          <br/>
+          </Paper>
+            </div>
+            <br/>
+            <h1 className="container"> Produk ku</h1>
+          <ProdukView/>
 </div>
     )}
 }

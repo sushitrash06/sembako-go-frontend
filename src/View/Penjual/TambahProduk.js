@@ -2,23 +2,23 @@ import React from 'react'
 import jwt_decode from 'jwt-decode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarPenjual from '../../Component/NavbarPenjual';
-// import {addproduk} from '../../View/UserFunctions';
 import axios from 'axios'
-import { Form,Col, Button } from 'react-bootstrap';
+import { Form,Col } from 'react-bootstrap';
 
 
 class TambahProduk extends React.Component{
-    
     constructor(){
         super()
         this.state={
             id_user:'',
             Nama_toko:'',
+            Username:'',
             Nama_produk: '',
             Harga:'',
             image: '',
             Deskripsi: '',
             Jumlah_produk: '',
+            StatusBarang:'aman',
             error:{}
         }
         this.onChange=this.onChange.bind(this)
@@ -29,24 +29,27 @@ class TambahProduk extends React.Component{
         const decoded= token ? jwt_decode(token) : null;
         this.setState({
             id_user:decoded.id_user,
-            Nama_toko:decoded.Nama_toko
+            Nama_toko:decoded.Nama_toko,
+            Username:decoded.Username
         })
     }
     onSubmit(e){
         e.preventDefault()
         const newProduk= new FormData();
         newProduk.append ("id_user",this.state.id_user);
-        newProduk.append("Nama_toko",this.state.Nama_toko)
+        newProduk.append("Nama_toko",this.state.Nama_toko);
+        newProduk.append("Username",this.state.Username);
         newProduk.append("Nama_Produk", this.state.Nama_Produk);
         newProduk.append("Price",this.state.Price);
         newProduk.append("image", this.state.image);
         newProduk.append("Deskripsi", this.state.Deskripsi);
         newProduk.append("Jumlah_stock", this.state.Jumlah_stock);
+        newProduk.append("StatusBarang", this.state.StatusBarang);
         const config = {
             headers: {
                 'content-type' : 'multipart/form-data'
             }
-        }
+        } 
         console.log(newProduk)
         axios.post('product/addproduk', newProduk,config)
             .then((response)=>{
@@ -168,6 +171,19 @@ class TambahProduk extends React.Component{
                             as="area" 
                             name="Nama_toko"
                             value={this.state.Nama_toko}
+                            onChange={this.onChange}
+                            />
+                        </Form.Group>    
+                        </Col>
+                    </Form.Row>
+                    <Form.Row controlId="exampleForm.ControlInput1" style={{ visibility: "hidden" }}>
+                        <Col>
+                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <br/>
+                            <Form.Control disabled
+                            as="area" 
+                            name="Username"
+                            value={this.state.Username}
                             onChange={this.onChange}
                             />
                         </Form.Group>    

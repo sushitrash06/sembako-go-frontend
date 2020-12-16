@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Link from 'react-bootstrap/NavLink';
 //import IconButton from '@material-ui/core/IconButton';
 //import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
@@ -60,19 +60,19 @@ inputInput: {
   },
 },
   primary: {
-    main: purple[500],
+    main: "#ffcb74",
   },
   secondary: {
-    main: '#f44336',
+    main: '#ffcb74',
   },
 }));
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: "#ffcb74",
     },
     secondary: {
-      main: '#11cb5f',
+      main: '#ffcb74',
     },
   },
 });
@@ -87,31 +87,19 @@ const NavbarAwal = (props)=> {
       position="static" 
       color="secondary"
       id="app_bar"
+      style={{backgroundColor:"#ffcb74"}}
       >
         <Toolbar>
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
           */}
-          <Typography variant="h4" className={classes.judul} id= "judul" align = "left"
+          <Typography variant="h4" className={classes.judul} id= "judul" align = "left" style={{fontFamily:'Carter One', color:"#ffffff", cursor:"pointer"}}
           onClick={()=> history.push('/home')}>
            Sembako Go!
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon alignItems="center"></SearchIcon>
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-              alignItems="center"
-            />
-          </div>
-          <Button color="inherit" onClick={() => history.push('/Login')}>Masuk Sebagai Pedagang</Button>
+          <Link  onClick={() => history.push('/Login')} style={{color:'#ffffff'}}>Login</Link>
+          
         </Toolbar>
       </AppBar>
     </div>
