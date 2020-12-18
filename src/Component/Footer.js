@@ -40,7 +40,7 @@ function Copyright() {
     return(
         <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1" className={classes.text}>Azka Andya - Sembako Go!</Typography>
+          <Typography variant="body1" className={classes.text}>azkaxism - Sembako Go!</Typography>
           <Copyright />
         </Container>
       </footer>

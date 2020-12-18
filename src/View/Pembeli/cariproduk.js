@@ -125,7 +125,7 @@ class cariproduk extends React.Component{
                 Nama_Produk:produks.Nama_Produk,
                 Price:produks.Price,
                 Deskripsi:produks.Deskripsi,
-                status_keranjang:produks.status_keranjang,
+                status_keranjang:"dalam keranjang",
                 StatusBarang: produks.StatusBarang
             }
         })

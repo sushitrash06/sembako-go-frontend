@@ -46,7 +46,7 @@ class Rekomendasi extends Component{
                 Nama_Produk: '',
                 Price:'',
                 Deskripsi: '',
-                status_keranjang: 'belum masuk keranjang',
+                status_keranjang: 'dalam keranjang',
                 StatusBarang:'Blokir',
                 typeModal:'',
             }

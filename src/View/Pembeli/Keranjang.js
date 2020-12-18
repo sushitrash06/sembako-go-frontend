@@ -66,7 +66,7 @@ showCart=()=>{
     var header = new Headers();
         header.append("Content-Type","application/json");
             console.log(decoded.id_user)
-        fetch(`http://140.238.205.80/keranjang/user/${decoded.id_user}/status/dalam Keranjang`,{
+        fetch(`http://140.238.205.80/keranjang/user/${decoded.id_user}/status/dalam keranjang`,{
             method:"GET",
             header:header,
         })
