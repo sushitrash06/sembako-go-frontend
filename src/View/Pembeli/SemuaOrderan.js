@@ -34,7 +34,7 @@ const styles = theme=>({
   table: {
     minWidth: 700,
   },
-});
+}); 
 
 class SemuaOrderan extends React.Component{
     constructor(){
@@ -52,7 +52,7 @@ class SemuaOrderan extends React.Component{
         var header = new Headers();
         header.append("Content-Type","application/json");
             console.log(decoded.id_user)
-        fetch(`http://140.238.205.80/pesanan/pembeli/ ${decoded.id_user}`,{
+        fetch(`http://140.238.205.80/pesanan/pembeli/${decoded.id_user}`,{
             method:"GET",
             header:header,
         })
