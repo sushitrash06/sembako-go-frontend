@@ -30,12 +30,6 @@ class Login extends Component {
       Username: this.state.Username,
       Password: this.state.Password,
     }  
-        /* const token = localStorage.getItem('usertoken')*/
-         //const decoded = token ? jwt_decode(token) : null;
-         // this.setState({
-         //   Roles:decoded ? decoded.Roles : null
-          //)
-          //console.log(typeof user.Username, typeof user.Password,'test');*/
     await login(user).then(token=>{
       if (token) {
         const decoded = jwt_decode(token);
@@ -48,21 +42,14 @@ class Login extends Component {
           alert("Gagal Login,coba lagi")
           this.props.history.push('/Login')
         }
-      }
+      } 
       }).catch((err)=>{
         alert("Gagal login!!")
         console.log(err);
       })
     }
       
-    
-  ////*{componentDidMount(){
-    ///const token = localStorage.usertoken
-    //const decoded = jwt_decode(token)
-    ///this.setState({
-      ///Roles: decoded.Roles
-    //})
-  //}
+
 
   render() {
     return (
@@ -72,7 +59,7 @@ class Login extends Component {
       <div className="container">
         <div className="col">
           <div className="col-md-6 mt-5 mx-auto">
-          <Paper style={{width:'100%', height: '380px', backgroundColor:"#d9dbd9"}} elevation={4}>
+          <Paper style={{width:'100%', height: '380px'}} elevation={4}>
             <form noValidate onSubmit={this.onSubmit} className="container">
               <br/>
               <h1 className="h3 mb-3 font-weight-normal">Ayo Login dulu!</h1>

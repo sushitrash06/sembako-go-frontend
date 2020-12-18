@@ -53,7 +53,7 @@ class CariKota extends React.Component{
         console.log(decoded.Kota)
         var header = new Headers();
         header.append("Content-Type","application/json");
-        fetch(`http://localhost:4000/Users/findUser/Kota/${decoded.Kota}`,{
+        fetch(`http://140.238.205.80/Users/findUser/Kota/${decoded.Kota}`,{
             method:"GET",
             header:header,
         })
@@ -117,7 +117,7 @@ class CariKota extends React.Component{
                             <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image={`http://localhost:4000${users.Foto}`}
+                                    image={`http://140.238.205.80${users.Foto}`}
                                     title="gambar"
                                     alt="gambar"
                                 />

@@ -46,7 +46,7 @@ class CariUser extends React.Component{
     onSubmit(){
         var header = new Headers();
         header.append("Content-Type","application/json");
-        fetch(`http://localhost:4000/Users/finduser/user/${this.state.Cari}`,{
+        fetch(`http://140.238.205.80/Users/finduser/user/${this.state.Cari}`,{
             method:"GET",
             header:header,
         })
@@ -110,7 +110,7 @@ class CariUser extends React.Component{
                             <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image={`http://localhost:4000${users.Foto}`}
+                                    image={`http://140.238.205.80${users.Foto}`}
                                     title="gambar"
                                     alt="gambar"
                                 />

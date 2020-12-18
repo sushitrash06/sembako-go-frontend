@@ -60,7 +60,7 @@ class Register extends Component {
      }
      console.log(newUser)
     //  console.log(this.state.Username)
-     axios.put('http://localhost:4000/Users/editprofile/'+this.state.id_user,newUser,config)
+     axios.put('http://140.238.205.80/Users/editprofile/'+this.state.id_user,newUser,config)
      .then(res=>{
       // localStorage.setItem('usertoken',res.data.token);
       this.ModalSuccess();

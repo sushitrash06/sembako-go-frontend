@@ -60,7 +60,7 @@ class ProfilAdmin extends React.Component{
   Total=()=>{
       var header = new Headers();
         header.append("Content-Type","application/json");
-        fetch('http://localhost:4000/Users/Total/',{
+        fetch('http://140.238.205.80/Users/Total/',{
             method:"GET",
             header:header,
         }).then((res)=> res.json())
@@ -77,9 +77,9 @@ class ProfilAdmin extends React.Component{
         );
   };
   penjual=()=>{
-    var header = new Headers();
+    var header = new Headers ();
       header.append("Content-Type","application/json");
-      fetch('http://localhost:4000/Users/Jumlah/Penjual',{
+      fetch('http://140.238.205.80/Users/Jumlah/Penjual',{
           method:"GET",
           header:header,
       }).then((res)=> res.json())
@@ -99,7 +99,7 @@ class ProfilAdmin extends React.Component{
   pembeli=()=>{
     var header = new Headers();
       header.append("Content-Type","application/json");
-      fetch('http://localhost:4000/Users/Jumlah/Pembeli',{
+      fetch('http://140.238.205.80/Users/Jumlah/Pembeli',{
           method:"GET",
           header:header,
       }).then((res)=> res.json())

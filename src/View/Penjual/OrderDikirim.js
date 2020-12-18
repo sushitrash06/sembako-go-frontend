@@ -61,7 +61,7 @@ class OrderDikirim extends React.Component{
         var header = new Headers();
         header.append("Content-Type","application/json");
             console.log(decoded.id_user)
-        fetch(`http://localhost:4000/pesanan/penjual/${decoded.id_user}/status/Dikirim`,{
+        fetch(`http://140.238.205.80/pesanan/penjual/${decoded.id_user}/status/Dikirim`,{
             method:"GET",
             header:header,
         })
@@ -91,7 +91,7 @@ class OrderDikirim extends React.Component{
       const PesananData ={
          Status: this.state.form.Status,
       }
-      axios.put('http://localhost:4000/pesanan/editpesanan/'+this.state.form.id_pesanan,PesananData).then(response=>{
+      axios.put('http://140.238.205.80/pesanan/editpesanan/'+this.state.form.id_pesanan,PesananData).then(response=>{
           this.ModalEdit();
           this.ShowData();
       })

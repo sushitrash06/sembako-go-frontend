@@ -37,7 +37,7 @@ class ViewProdukKu extends React.Component{
         var header = new Headers();
         header.append("Content-Type","application/json");
             console.log(decoded.id_user)
-        fetch(`http://localhost:4000/product/View/${decoded.id_user}`,{
+        fetch(`http://140.238.205.80/product/View/${decoded.id_user}`,{
             method:"GET",
             header:header,
         })
@@ -79,7 +79,7 @@ return(
         <CardActionArea>
             <CardMedia
                 className={classes.media}
-                image={`http://localhost:4000${produks.image}`}
+                image={`http://140.238.205.80${produks.image}`}
                 title="gambar"
                 alt="gambar"
             />

@@ -44,7 +44,7 @@ class Register extends Component {
        }
      }
     console.log(newUser)
-    axios.post('/Users/register',newUser,config)
+    axios.post('http://140.238.205.80/Users/register',newUser,config)
     .then(res => { 
       localStorage.setItem('usertoken',res.data.token);
       if(this.state.Roles ==="Penjual"){

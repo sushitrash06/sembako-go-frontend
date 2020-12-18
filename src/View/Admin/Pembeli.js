@@ -46,7 +46,7 @@ class Pembeli extends React.Component{
      componentDidMount(){
         var header = new Headers();
         header.append("Content-Type","application/json");
-        fetch(`http://localhost:4000/Users/Admin/User/Pembeli`,{
+        fetch(`http://140.238.205.80/Users/Admin/User/Pembeli`,{
             method:"GET",
             header:header,
         })

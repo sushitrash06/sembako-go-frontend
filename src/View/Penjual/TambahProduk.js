@@ -51,7 +51,7 @@ class TambahProduk extends React.Component{
             }
         } 
         console.log(newProduk)
-        axios.post('product/addproduk', newProduk,config)
+        axios.post('http://140.238.205.80/product/addproduk', newProduk,config)
             .then((response)=>{
                 this.props.history.push(`/DashboardPenjual`);
             }).catch((err)=>{

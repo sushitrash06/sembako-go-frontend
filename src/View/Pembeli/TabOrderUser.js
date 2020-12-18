@@ -80,7 +80,7 @@ export default function TabOrder() {
           <Tab label="Semua Orderan" {...a11yProps(0)} />
           <Tab label="Orderan Belum dikirim" {...a11yProps(1)} />
           <Tab label="Orderan dikirim" {...a11yProps(2)} />
-          <Tab label="Orderan diterima" {...a11yProps(3)} />
+          <Tab label="Orderan Selsai" {...a11yProps(3)} />
         </Tabs>
       </AppBar> 
       <SwipeableViews

@@ -56,7 +56,7 @@ class ProdukList1 extends Component{
     var header = new Headers();
         header.append("Content-Type","application/json");
             console.log(decoded.id_user)
-        fetch(`http://localhost:4000/product/View/${decoded.id_user}`,{
+        fetch(`http://140.238.205.80/product/View/${decoded.id_user}`,{
             method:"GET",
             header:header,
         })
@@ -91,7 +91,7 @@ class ProdukList1 extends Component{
                 'content-type' : 'multipart/form-data'
             }
         }
-        axios.put('http://localhost:4000/product/editproduk/'+this.state.form.id_produk,newProduk,config).then(response=>{
+        axios.put('http://140.238.205.80/product/editproduk/'+this.state.form.id_produk,newProduk,config).then(response=>{
             this.ModalInsert();
             this.ShowData();
             console.log(newProduk)
@@ -100,7 +100,7 @@ class ProdukList1 extends Component{
         })
     }
     DeleteData=()=>{
-        axios.delete('http://localhost:4000/product/'+this.state.form.id_produk).then(response=>{
+        axios.delete('http://140.238.205.80/product/'+this.state.form.id_produk).then(response=>{
             this.setState({
                 ModalDelete: false
             })
@@ -159,7 +159,7 @@ class ProdukList1 extends Component{
                             <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image={`http://localhost:4000${produks.image}`}
+                                    image={`http://140.238.205.80${produks.image}`}
                                     title="gambar"
                                     alt="gambar"
                                 />

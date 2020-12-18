@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const register = newUser => {
     return axios
-    .post('Users/register',{
+    .post('http://140.238.205.80/Users/register',{
         Nama: newUser.Nama,
         Nama_toko: newUser.Nama_toko,
         Username: newUser.Username,
@@ -26,7 +26,7 @@ export const register = newUser => {
 
 export const login = user =>{
     return axios
-    .post('Users/login', {
+    .post('http://140.238.205.80/Users/login', {
         Username: user.Username,
         Password: user.Password,
         //Roles: user.Roles
@@ -44,10 +44,9 @@ export const login = user =>{
 
 export const loginAdmin = Admin =>{
     return axios
-    .post('admin/login', {
+    .post('http://140.238.205.80/admin/login', {
         Username: Admin.Username,
         Password: Admin.Password,
-        //Roles: user.Roles
     })
     .then(res =>{ 
         console.log(res.data);

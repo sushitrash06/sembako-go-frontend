@@ -75,7 +75,7 @@ class Checkout extends React.Component{
             var header = new Headers();
                 header.append("Content-Type","application/json");
                     // console.log(decoded.id_user)
-                fetch(`http://localhost:4000/keranjang/view/${id_keranjang}`,{
+                fetch(`http://140.238.205.80/keranjang/view/${id_keranjang}`,{
                     method:"GET",
                     header:header,
                 })
@@ -107,7 +107,7 @@ class Checkout extends React.Component{
                 this.setState({ [e.target.name]: e.target.value })
               }
             deleteCart(){
-                    axios.delete('http://localhost:4000/keranjang/delete/'+this.state.id_keranjang)
+                    axios.delete('http://140.238.205.80/keranjang/delete/'+this.state.id_keranjang)
                     .then(response=>{
                         console.log("delete sukses :"+this.state.id_keranjang)
                     }).catch((err)=>{
@@ -129,7 +129,7 @@ class Checkout extends React.Component{
                         Catatan: this.state.Catatan,
                         Status: this.state.Status,
                 }
-                axios.post('http://localhost:4000/pesanan/tambah_pesanan',newOrder)
+                axios.post('http://140.238.205.80/pesanan/tambah_pesanan',newOrder)
                 .then(response=>{
                     this.ModalSuccess();
                     this.deleteCart();

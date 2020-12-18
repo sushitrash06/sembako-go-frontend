@@ -66,7 +66,7 @@ showCart=()=>{
     var header = new Headers();
         header.append("Content-Type","application/json");
             console.log(decoded.id_user)
-        fetch(`http://localhost:4000/keranjang/user/${decoded.id_user}/status/dalam Keranjang`,{
+        fetch(`http://140.238.205.80/keranjang/user/${decoded.id_user}/status/dalam Keranjang`,{
             method:"GET",
             header:header,
         })
@@ -87,7 +87,7 @@ showCart=()=>{
     }
 
     deleteCart=()=>{
-        axios.delete('http://localhost:4000/keranjang/delete/'+this.state.form.id_keranjang)
+        axios.delete('http://140.238.205.80/keranjang/delete/'+this.state.form.id_keranjang)
         .then(response=>{
             this.setState({
                 ModalDelete: false

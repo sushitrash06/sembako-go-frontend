@@ -31,7 +31,7 @@ class Profil extends React.Component{
       var header = new Headers();
             header.append("Content-Type","application/json");
             // console.log(Username)
-        fetch(`http://localhost:4000/Users/Penjual/User/${decoded.Username}`,{
+        fetch(`http://140.238.205.80/Users/Penjual/User/${decoded.Username}`,{
             method: "GET",
             header:header,
         }).then(res=>res.json())
@@ -71,7 +71,7 @@ class Profil extends React.Component{
                             <Col>
                             <br/>   
                             <div>
-                                <img align="right"style={{width:"70%"}} src={`http://localhost:4000${User.Foto}`} alt="gambar"/>
+                                <img align="right"style={{width:"70%"}} src={`http://140.238.205.80${User.Foto}`} alt="gambar"/>
                             </div>
                             </Col>
                             </Row>

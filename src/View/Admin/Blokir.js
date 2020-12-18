@@ -51,7 +51,7 @@ class Blokir extends Component{
     ShowData=()=>{
     var header = new Headers();
         header.append("Content-Type","application/json");
-        fetch(`http://localhost:4000/product/cari/blokir/Blokir`,{
+        fetch(`http://140.238.205.80/product/cari/blokir/Blokir`,{
             method:"GET",
             header:header,
         })
@@ -80,7 +80,7 @@ class Blokir extends Component{
             }
         }
         console.log(this.state.StatusBarang)
-        axios.put('http://localhost:4000/product/laporkan/'+this.state.form.id_produk,newProduk,config).then(response=>{
+        axios.put('http://140.238.205.80/product/laporkan/'+this.state.form.id_produk,newProduk,config).then(response=>{
             console.log(newProduk)
             this.ModalInsert();
             this.componentDidMount();
@@ -90,7 +90,7 @@ class Blokir extends Component{
 
     }
     DeleteData=()=>{
-        axios.delete('http://localhost:4000/product/'+this.state.form.id_produk).then(response=>{
+        axios.delete('http://140.238.205.80/product/'+this.state.form.id_produk).then(response=>{
             this.setState({
                 ModalDelete: false
             })
@@ -145,7 +145,7 @@ class Blokir extends Component{
                             <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image={`http://localhost:4000${produks.image}`}
+                                    image={`http://140.238.205.80${produks.image}`}
                                     title="gambar"
                                     alt="gambar"
                                 />

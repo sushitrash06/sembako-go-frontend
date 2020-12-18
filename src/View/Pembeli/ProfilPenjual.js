@@ -67,7 +67,7 @@ class ProfilUser extends React.Component{
         var header = new Headers();
             header.append("Content-Type","application/json");
             console.log(Username) 
-        fetch(`http://localhost:4000/Users/Penjual/User/${Username}`,{
+        fetch(`http://140.238.205.80/Users/Penjual/User/${Username}`,{
             method: "GET",
             header:header,
         }).then(res=>res.json())
@@ -88,7 +88,7 @@ class ProfilUser extends React.Component{
         var header = new Headers();
             header.append("Content-Typle","application/json");
             console.log(Username)
-        fetch(`http://localhost:4000/product/Username/${Username}`,{
+        fetch(`http://140.238.205.80/product/Username/${Username}`,{
             method:"GET",
             header: header,
         }).then(res=>res.json())
@@ -137,7 +137,7 @@ class ProfilUser extends React.Component{
             Deskripsi:this.state.form.Deskripsi,
             status_keranjang:this.state.form.status_keranjang,
         }
-        axios.post('http://localhost:4000/keranjang/addtocart', newCart)
+        axios.post('http://140.238.205.80/keranjang/addtocart', newCart)
         .then(response =>{
           this.ModalSuccess();
           this.componentDidMount(); 
@@ -162,7 +162,7 @@ class ProfilUser extends React.Component{
                 }
             }
             console.log(this.state.StatusBarang)
-            axios.put('http://localhost:4000/product/laporkan/'+this.state.form.id_produk,newProduk,config).then(response=>{
+            axios.put('http://140.238.205.80/product/laporkan/'+this.state.form.id_produk,newProduk,config).then(response=>{
                 console.log(newProduk)
                 this.ModalLaporkan();
             }).catch(error=>{
@@ -192,7 +192,7 @@ class ProfilUser extends React.Component{
                     <Col>
                     <br/>
                     <div>
-                        <img align="right"style={{width:"50%"}} src={`http://localhost:4000${User.Foto}`} alt="gambar"/>
+                        <img align="right"style={{width:"50%"}} src={`http://140.238.205.80${User.Foto}`} alt="gambar"/>
                     </div>
                     </Col>
                     </Row>
@@ -218,7 +218,7 @@ class ProfilUser extends React.Component{
                                   <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image={`http://localhost:4000${produks.image}`}
+                                    image={`http://140.238.205.80${produks.image}`}
                                     title="gambar"
                                     alt="gambar"
                                 />

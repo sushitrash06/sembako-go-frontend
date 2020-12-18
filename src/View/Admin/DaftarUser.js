@@ -46,7 +46,7 @@ class DaftarUser extends React.Component{
      componentDidMount(){
         var header = new Headers();
         header.append("Content-Type","application/json");
-        fetch(`http://localhost:4000/Users/`,{
+        fetch(`http://140.238.205.80/Users/`,{
             method:"GET",
             header:header,
         })

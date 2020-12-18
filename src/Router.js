@@ -60,7 +60,7 @@ class Routes extends Component{
                     <Route path ="/Keranjang" component={Keranjang}/>
                     <Route path ="/Checkout/:id_keranjang" component={Checkout}/>
                     <Route path ="/Pembeli/Orderan" component={OrderPembeli}/>
-                    <Route path ="/Admin" component={Admin}/>
+                    <Route path ="/LoginAdmin" component={Admin}/>
                     <Route path ="/AdminHome" component={AdminHome}/>
                     <Route path ="/SemuaUser" component={SemuaUser}/>
                     <Route path ="/UserPembeli" component={PembeliUser}/>

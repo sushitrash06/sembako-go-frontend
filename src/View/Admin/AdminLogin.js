@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loginAdmin} from '../UserFunctions';
-// import jwt_decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import NavbarAwal from '../../Component/NavbarAwal';
 // import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -15,7 +15,6 @@ class Login extends Component {
     this.state = {
       Username: '',
       Password: '',
-      Roles:'',
       errors: {}
     }
 
@@ -32,30 +31,21 @@ class Login extends Component {
       Username: this.state.Username,
       Password: this.state.Password,
     }  
-        /* const token = localStorage.getItem('usertoken')*/
-         //const decoded = token ? jwt_decode(token) : null;
-         // this.setState({
-         //   Roles:decoded ? decoded.Roles : null
-          //)
-          //console.log(typeof user.Username, typeof user.Password,'test');*/
-    await loginAdmin(admin).then(res=>{
-      if (res) {
-        this.props.history.push(`/AdminHome`)
+    await loginAdmin(admin).then(token=>{
+      if (token) {
+        const decoded = jwt_decode(token);
+        if (decoded.Username ==="admin_chan"){
+          this.props.history.push(`/AdminHome`)
+        }else{
+        this.props.history.push(`/LoginAdmin`)
       }
+    }
       }).catch((err)=>{
         alert("Gagal login!!")
+
         console.log(err);
       })
     }
-      
-    
-  ////*{componentDidMount(){
-    ///const token = localStorage.usertoken
-    //const decoded = jwt_decode(token)
-    ///this.setState({
-      ///Roles: decoded.Roles
-    //})
-  //}
 
   render() {
     return (

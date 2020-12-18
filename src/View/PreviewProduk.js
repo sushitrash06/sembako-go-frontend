@@ -43,7 +43,7 @@ class PreviewProduk extends Component{
     showDataBeras=()=>{
         var header = new Headers();
             header.append("Content-Type","application/json");
-        fetch(`http://localhost:4000/product/cari/Beras`,{
+        fetch(`http://140.238.205.80/product/cari/Beras`,{
             method:"GET",
             header: header,
         })
@@ -87,7 +87,7 @@ render(){
                                   <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image={`http://localhost:4000${produks.image}`}
+                                    image={`http://140.238.205.80${produks.image}`}
                                     title="gambar"
                                     alt="gambar"
                                 />

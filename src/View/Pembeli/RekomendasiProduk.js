@@ -70,7 +70,7 @@ class Rekomendasi extends Component{
         var header = new Headers();
             header.append("Content-Type","application/json");
             console.log(decoded.id_user)
-        fetch(`http://localhost:4000/product/cari/Minyak`,{
+        fetch(`http://140.238.205.80/product/cari/Minyak`,{
             method:"GET",
             header: header,
         })
@@ -100,7 +100,7 @@ class Rekomendasi extends Component{
             Deskripsi:this.state.form.Deskripsi,
             status_keranjang:this.state.form.status_keranjang,
         }
-        axios.post('http://localhost:4000/keranjang/addtocart', newCart)
+        axios.post('http://140.238.205.80/keranjang/addtocart', newCart)
         .then(response =>{
           this.ModalSuccess();
           this.componentDidMount(); 
@@ -125,7 +125,7 @@ class Rekomendasi extends Component{
                 }
             }
             console.log(this.state.StatusBarang)
-            axios.put('http://localhost:4000/product/laporkan/'+this.state.form.id_produk,newProduk,config).then(response=>{
+            axios.put('http://140.238.205.80/product/laporkan/'+this.state.form.id_produk,newProduk,config).then(response=>{
                 console.log(newProduk)
                 this.ModalLaporkan();
             }).catch(error=>{
@@ -175,7 +175,7 @@ render(){
                                   <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image={`http://localhost:4000${produks.image}`}
+                                    image={`http://140.238.205.80${produks.image}`}
                                     title="gambar"
                                     alt="gambar"
                                 />

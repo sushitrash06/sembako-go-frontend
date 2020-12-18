@@ -11,7 +11,7 @@ render(){
     return(
     <div>
         <div id = "About-style">
-            <h1 style={{textAlign:'center'}}>About Sembako Go!</h1>
+            <h1 style= {{textAlign:'center'}}>About Sembako Go!</h1>
             <br/>
                 <br/>
             <div>

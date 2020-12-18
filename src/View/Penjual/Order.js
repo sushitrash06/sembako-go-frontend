@@ -60,7 +60,7 @@ class Order extends React.Component{
         var header = new Headers();
         header.append("Content-Type","application/json");
             console.log(decoded.Username)
-        fetch(`http://localhost:4000/pesanan/penjual/${decoded.Username}`,{
+        fetch(`http://140.238.205.80/pesanan/penjual/${decoded.Username}`,{
             method:"GET",
             header:header,
         })
