@@ -34,14 +34,14 @@ class DashboardPenjual extends React.Component{
               <Col>
               <div className="container">
                 <br/>
-                <h1 style={{color:"#ffff"}}>Welcome :</h1>
-                <h1 style={{color:"#ffff"}}>{this.state.Nama_toko}</h1>
+                <p style={{color:"#ffff", fontSize:'5vw'}}>Welcome </p>
+                <p style={{color:"#ffff", fontSize:'5vw'}}>{this.state.Nama_toko}</p>
               </div>
               </Col>
               <Col>
               <br/>
               <div>
-                <img align="right"style={{width:"70%"}} src={gambar} alt="gambar"/>
+                <img align="right"style={{maxWidth:"70%", minWidth:"50%" }} src={gambar} alt="gambar"/>
               </div>
               </Col>
               </Row>

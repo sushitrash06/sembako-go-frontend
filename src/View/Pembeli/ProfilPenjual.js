@@ -184,15 +184,15 @@ class ProfilUser extends React.Component{
                     <Col>
                      <div className="container">
                         <br/>
-                        <h2 style={{color:"#ffff"}}>Toko {User.Nama_toko}</h2>
-                        <h4 style={{color:"#ffff"}}>{User.Username}</h4>
-                        <h4 style={{color:"#ffff"}}><LocationOnOutlinedIcon/>{User.Kota}</h4>
+                        <p style={{color:"#ffff",fontSize:'5vw'}}><b>Toko {User.Nama_toko}</b></p>
+                        <p style={{color:"#ffff",fontSize:'3vw'}}>{User.Username}</p>
+                        <p style={{color:"#ffff",fontSize:'3vw'}}><LocationOnOutlinedIcon/>{User.Kota}</p>
                     </div>
                     </Col>
                     <Col>
                     <br/>
                     <div>
-                        <img align="right"style={{width:"50%"}} src={`http://140.238.205.80${User.Foto}`} alt="gambar"/>
+                        <img align="right"style={{maxWidth:"70%"}} src={`http://140.238.205.80${User.Foto}`} alt="gambar"/>
                     </div>
                     </Col>
                     </Row>

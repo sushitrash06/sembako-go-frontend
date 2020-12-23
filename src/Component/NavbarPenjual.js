@@ -169,11 +169,7 @@ const NavbarPenjual = (props)=> {
       id="app_bar"
       style={{backgroundColor:'#ffcb74'}}
       >
-        <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          */}
+        <Toolbar>         
           <Typography variant="h4" id= "judul" align = "left" style={{fontFamily:'Pacifico', color:"#ffffff"}}
           onClick={()=> history.push('/DashboardPenjual')}>
            Sembako Go!

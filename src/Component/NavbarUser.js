@@ -36,12 +36,6 @@ const useStyles = makeStyles((theme) => ({
   },
   judul: {
     flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-      pointerEvents:'auto',
-      
-  },
 },
 sectionDesktop:{
   display: 'none',
@@ -171,10 +165,6 @@ const NavbarUser = (props)=> {
       style={{backgroundColor:'#ffcb74'}}
       >
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          */}
           <Typography variant="h4" className={classes.judul} id= "judul" align = "left" style={{fontFamily:'Pacifico', color:"#ffffff"}}
           onClick={()=> history.push('/HalamanAwal')}>
            Sembako Go!

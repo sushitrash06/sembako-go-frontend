@@ -43,6 +43,14 @@ class Register extends Component {
         'content-type' : 'multipart/form-data'
        }
      }
+     if( !document.getElementById('alamat').value || !document.getElementById('nama').value ||
+         !document.getElementById('username').value || !document.getElementById('password').value || 
+         !document.getElementById('kota').value 
+     ){
+      alert("Data ini penting! harap masukan data!!!!")
+  }else if(!this.state.Roles){
+    alert("Masukan Roles Anda")
+  }else{
     console.log(newUser)
     axios.post('http://140.238.205.80/Users/register',newUser,config)
     .then(res => { 
@@ -56,12 +64,13 @@ class Register extends Component {
       }else{
         alert("Gagal Register, Masukan data dengan benar")
       }
-    
   }).catch((err)=>{
     alert("Gagal Membuat akun, mungkin user name anda sudah terpakai")
     console.log(err);
   })
-}  yesnoCheck() {
+}
+} 
+yesnoCheck() {
     if (document.getElementById("yesCheck").checked) {
       this.state.Roles="Penjual"
       document.getElementById("ifYes").style.visibility = "visible";
@@ -85,6 +94,7 @@ class Register extends Component {
               <div className="form-group">
                 <label htmlFor="name">Nama Pemilik</label>
                 <input
+                  id="nama"
                   type="text"
                   className="form-control"
                   name="Nama_pengguna"
@@ -96,6 +106,7 @@ class Register extends Component {
           <div className="form-group">
                 <label htmlFor="name">Alamat</label>
                 <input
+                  id="alamat"
                   type="text"
                   className="form-control"
                   name="Alamat"
@@ -107,6 +118,7 @@ class Register extends Component {
             <div className="form-group">
                 <label htmlFor="name">Kota</label>
                 <input
+                  id="kota"
                   type="text"
                   className="form-control"
                   name="Kota"
@@ -118,6 +130,7 @@ class Register extends Component {
               <div className="form-group">
                 <label htmlFor="Username">Username</label>
                 <input
+                  id="username"
                   type="Username"
                   className="form-control"
                   name="Username"
@@ -130,6 +143,7 @@ class Register extends Component {
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
+                  id="password"
                   type="Password"
                   className="form-control"
                   name="Password"
@@ -164,7 +178,7 @@ class Register extends Component {
                         <Form.Group>
                         <Form.File 
                         id="exampleFormControlFile1" 
-                        label="Masukan Foto toko / logo toko anda kembali" 
+                        label="Masukan Foto toko / logo toko anda"
                         type="Foto"
                         name="Foto"
                         value={this.setState.Foto}

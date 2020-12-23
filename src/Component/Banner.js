@@ -11,7 +11,6 @@ function Banner(){
     const handleSelect = (selectedIndex, e)=>{
         setIndex(selectedIndex);
     };
-
     return(
         <Carousel 
         active={index} 
@@ -19,16 +18,12 @@ function Banner(){
         >
             <Carousel.Item>
                 <img
-                className="d-block w-100"
-                src={banner1}
-                alt="First"
+                className="d-block w-100" src={banner1} alt="First"
                 />
             </Carousel.Item>
             <Carousel.Item>
         <img
-          className="d-block w-100"
-          src={banner2}
-          alt="Second slide"
+          className="d-block w-100" src={banner2}alt="Second slide"
         />
         </Carousel.Item>
         <Carousel.Item>

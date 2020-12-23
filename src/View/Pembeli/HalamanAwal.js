@@ -12,7 +12,7 @@ export default function TampilanAwal(){
             <Navbar/>
             <Banner/>
             <About/>
-            <div><h2>Rekomendasi Produk</h2></div>
+            <div><h2 align="center">Rekomendasi Produk</h2></div>
             <br/>
             <ProdukView/>
             <Minyak/>

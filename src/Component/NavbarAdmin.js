@@ -94,10 +94,6 @@ const NavbarAdmin = (props)=> {
       id="app_bar"
       > 
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          */}
           <Typography variant="h4" className={classes.judul} id= "judul" align = "left" style={{fontFamily:'Carter One', color:"#ffffff", cursor:"pointer"}}
           onClick={()=> history.push('/AdminHome')}>
            Sembako Go!

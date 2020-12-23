@@ -25,7 +25,7 @@ render(){
             </img>
             <br/>
             </div>
-            <p style={{textAlign:'center',fontSize:"25px"}}> “Sembako Go!” merupakan sebuah wadah  jual beli khusus sembako berbasis web yang target penggunanya adalah pedagang sembako besar untuk menjual sembakonya , pedagang sembako kecil untuk membeli pasokan barang jualan di warung mereka dan masyarakat yang tidak memiliki banyak waktu untuk berbelanja.</p>
+            <p className="container" style={{textAlign:'center',fontSize:"25px"}}> “Sembako Go!” merupakan sebuah wadah  jual beli khusus sembako berbasis web yang target penggunanya adalah pedagang sembako besar untuk menjual sembakonya , pedagang sembako kecil untuk membeli pasokan barang jualan di warung mereka dan masyarakat yang tidak memiliki banyak waktu untuk berbelanja.</p>
         </div>
         <br/>
         <br/>

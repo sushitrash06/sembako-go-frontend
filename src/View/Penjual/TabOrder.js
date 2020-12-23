@@ -80,7 +80,7 @@ export default function FullWidthTabs() {
           aria-label="icon label tabs example"
         >
           <Tab label="Semua Orderan" {...a11yProps(0)} />
-          <Tab label="Orderan Terkirim" {...a11yProps(1)} />
+          <Tab label="Orderan Selsai" {...a11yProps(1)} />
           <Tab label="Orderan Belum Terkirim" {...a11yProps(2)} />
         </Tabs>
       </AppBar> 

@@ -52,9 +52,10 @@ class Checkout extends React.Component{
         }
         ModalSuccess=()=>{
             this.setState(({ModalSuccess: !this.state.ModalSuccess}))
+
         } 
         incrementCount = () => {
-            this.setState({ jumlah_pesanan: this.state.jumlah_pesanan + 1 }, () =>
+            this.setState({ jumlah_pesanan: this.state.jumlah_pesanan + 1 },() =>
               this.componentDidMount()
             );
           };
@@ -129,16 +130,22 @@ class Checkout extends React.Component{
                         Catatan: this.state.Catatan,
                         Status: this.state.Status,
                 }
-                axios.post('http://140.238.205.80/pesanan/tambah_pesanan',newOrder)
-                .then(response=>{
-                    this.ModalSuccess();
-                    this.deleteCart();
-                    this.props.history.push(`/Pembeli/Orderan`)
-                    console.log(newOrder)
+                if( !document.getElementById('alamat').value || !document.getElementById('nomer').value ){
+                    alert("Masukan Data dengan benar!")
+                }else if(this.state.jumlah_pesanan <= 0 && this.state.Total_bayar <= 0){
+                    alert("pesanan tidak boleh kurang dari 0!")
+                }else{
+                    axios.post('http://140.238.205.80/pesanan/tambah_pesanan',newOrder)
+                    .then(response=>{
+                        this.ModalSuccess();
+                        this.deleteCart();
+                        this.props.history.push(`/Pembeli/Orderan`)
+                        console.log(newOrder)
                 }).catch((err)=>{
                     console.log(err)
+                    alert("gagal memuat pesanan")
                 })
-            
+            }
         }
         render(){
             const {Cart} = this.state;
@@ -162,7 +169,7 @@ class Checkout extends React.Component{
                         <Grid item xs={12} sm={6}>
                         <TextField
                             required
-                            id="standard-basic"
+                            id="alamat"
                             name="Alamat_kirim"
                             label="Alamat Kirim"
                             type="TextField"
@@ -191,7 +198,7 @@ class Checkout extends React.Component{
                         </Grid>
                         <Grid item xs={12}>
                         <TextField
-                            id="standard-basic"
+                            id="nomer"
                             type="TextField"
                             name="Nomer_hp"
                             label="Masukan Nomer hp"

@@ -29,14 +29,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   judul: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-      pointerEvents:'auto',
-      
+    flexGrow: 1, 
   },
-},
 searchIcon: {
   marginTop:theme.spacing(-2),
   height: '100%',
@@ -90,10 +84,6 @@ const NavbarAwal = (props)=> {
       style={{backgroundColor:"#ffcb74"}}
       >
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          */}
           <Typography variant="h4" className={classes.judul} id= "judul" align = "left" style={{fontFamily:'Carter One', color:"#ffffff", cursor:"pointer"}}
           onClick={()=> history.push('/home')}>
            Sembako Go!
